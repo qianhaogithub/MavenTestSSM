@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>SPRING</ID>
+  <OriginalElement>appContextPath=E:/workspaceforide/MavenTestSSM/src/main/resource/applicationContext.xml;appContextName=applicationContext</OriginalElement>
+  <nodes>
+    <node x="202.0" y="0.0">module=MavenTestSSM;context=E:/workspaceforide/MavenTestSSM/src/main/resource/applicationContext.xml;bean_class=org.springframework.transaction.interceptor.TransactionInterceptor;bean_name=txAdvice</node>
+    <node x="355.0" y="0.0">module=MavenTestSSM;context=E:/workspaceforide/MavenTestSSM/src/main/resource/applicationContext.xml;bean_class=org.springframework.jdbc.datasource.DataSourceTransactionManager;bean_name=transactionManager</node>
+    <node x="0.0" y="259.0">module=MavenTestSSM;context=E:/workspaceforide/MavenTestSSM/src/main/resource/applicationContext.xml;bean_name=(com.github) [Component]</node>
+    <node x="0.0" y="0.0">module=MavenTestSSM;context=E:/workspaceforide/MavenTestSSM/src/main/resource/applicationContext.xml;tag=aop:config;offset=2516</node>
+    <node x="0.0" y="193.0">module=MavenTestSSM;context=E:/workspaceforide/MavenTestSSM/src/main/resource/applicationContext.xml;bean_class=org.springframework.beans.factory.config.PlaceholderConfigurerSupport;tag=context:property-placeholder;offset=1107</node>
+    <node x="236.0" y="0.0">module=MavenTestSSM;context=E:/workspaceforide/MavenTestSSM/src/main/resource/applicationContext.xml;bean_class=com.mchange.v2.c3p0.ComboPooledDataSource;bean_name=comboPooledDataSource</node>
+    <node x="0.0" y="0.0">module=MavenTestSSM;context=E:/workspaceforide/MavenTestSSM/src/main/resource/applicationContext.xml;bean_class=org.mybatis.spring.SqlSessionFactoryBean;bean_name=sqlSessionFactoryBean</node>
+    <node x="225.0" y="259.0">module=MavenTestSSM;context=E:/workspaceforide/MavenTestSSM/src/main/resource/applicationContext.xml;bean_class=org.mybatis.spring.mapper.MapperScannerConfigurer;tag=bean;offset=2074</node>
+    <node x="174.0" y="325.0">module=MavenTestSSM;context=E:/workspaceforide/MavenTestSSM/src/main/resource/applicationContext.xml;bean_class=com.github.dao.DeptMapper;bean_name=deptMapper</node>
+    <node x="0.0" y="325.0">module=MavenTestSSM;context=E:/workspaceforide/MavenTestSSM/src/main/resource/applicationContext.xml;bean_class=com.github.dao.EmployeeMapper;bean_name=employeeMapper</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="module=MavenTestSSM;context=E:/workspaceforide/MavenTestSSM/src/main/resource/applicationContext.xml;tag=aop:config;offset=2516" target="module=MavenTestSSM;context=E:/workspaceforide/MavenTestSSM/src/main/resource/applicationContext.xml;bean_class=org.springframework.transaction.interceptor.TransactionInterceptor;bean_name=txAdvice">
+      <point x="61.0" y="-0.0" />
+      <point x="-36.5" y="-0.0" />
+    </edge>
+    <edge source="module=MavenTestSSM;context=E:/workspaceforide/MavenTestSSM/src/main/resource/applicationContext.xml;bean_class=org.mybatis.spring.SqlSessionFactoryBean;bean_name=sqlSessionFactoryBean" target="module=MavenTestSSM;context=E:/workspaceforide/MavenTestSSM/src/main/resource/applicationContext.xml;bean_class=com.mchange.v2.c3p0.ComboPooledDataSource;bean_name=comboPooledDataSource">
+      <point x="78.0" y="-0.0" />
+      <point x="-87.5" y="-0.0" />
+    </edge>
+    <edge source="module=MavenTestSSM;context=E:/workspaceforide/MavenTestSSM/src/main/resource/applicationContext.xml;bean_class=org.springframework.transaction.interceptor.TransactionInterceptor;bean_name=txAdvice" target="module=MavenTestSSM;context=E:/workspaceforide/MavenTestSSM/src/main/resource/applicationContext.xml;bean_class=org.springframework.jdbc.datasource.DataSourceTransactionManager;bean_name=transactionManager">
+      <point x="36.5" y="-0.0" />
+      <point x="-69.0" y="-0.0" />
+    </edge>
+    <edge source="module=MavenTestSSM;context=E:/workspaceforide/MavenTestSSM/src/main/resource/applicationContext.xml;bean_class=org.springframework.jdbc.datasource.DataSourceTransactionManager;bean_name=transactionManager" target="module=MavenTestSSM;context=E:/workspaceforide/MavenTestSSM/src/main/resource/applicationContext.xml;bean_class=com.mchange.v2.c3p0.ComboPooledDataSource;bean_name=comboPooledDataSource">
+      <point x="0.0" y="-10.5" />
+      <point x="0.0" y="10.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="248.0" y="172.5" />
+  <SelectedNodes>
+    <node>module=MavenTestSSM;context=E:/workspaceforide/MavenTestSSM/src/main/resource/applicationContext.xml;bean_class=org.springframework.transaction.interceptor.TransactionInterceptor;bean_name=txAdvice</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Local context</Category>
+  </Categories>
+</Diagram>
+

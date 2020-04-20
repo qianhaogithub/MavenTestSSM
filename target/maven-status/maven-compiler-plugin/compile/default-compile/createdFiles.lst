@@ -1,0 +1,15 @@
+com\github\controler\EmployeeController.class
+com\github\service\EmployeeService.class
+com\github\beans\Dept.class
+com\github\beans\EmployeeExample$GeneratedCriteria.class
+com\github\beans\DeptExample$Criterion.class
+com\github\beans\DeptExample.class
+com\github\dao\DeptMapper.class
+com\github\dao\EmployeeMapper.class
+com\github\beans\EmployeeExample.class
+com\github\beans\DeptExample$GeneratedCriteria.class
+com\github\beans\EmployeeExample$Criteria.class
+com\github\beans\Employee.class
+com\github\beans\Msg.class
+com\github\beans\DeptExample$Criteria.class
+com\github\beans\EmployeeExample$Criterion.class
