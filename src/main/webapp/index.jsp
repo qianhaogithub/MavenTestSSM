@@ -205,7 +205,12 @@
             var $operationTd = $("<td></td>").append($opertationTd_edit_btn).append($opertationTd_del_btn);
             var $empIdTd = $("<td></td>").html(item.empId);
             var $empName = $("<td></td>").html(item.emoName);
-            var $empGender = $("<td></td>").html(item.empGender=="0"?"男":"女");
+            var $empGender = "";
+            if(!item.empGender){
+                $empGender = $("<td></td>").html("");
+            }else{
+                $empGender = $("<td></td>").html(item.empGender=="0"?"男":"女");
+            }
             var $empEmail = $("<td></td>").html(item.empEmail);
             var $empDeptEmpname = $("<td></td>").html(item.dept.deptName);
             var $empTr = $("<tr></tr>").append($operationTd).append($empIdTd).append($empName).append($empGender)
