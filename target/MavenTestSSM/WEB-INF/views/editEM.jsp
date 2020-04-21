@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>CRUD</title>
-    <jsp:include page="/include_Jsp/testCRUD.jsp"/>
+    <jsp:include page="/include_Jsp/common_include.jsp"/>
 </head>
 <body>
     <div class="container">

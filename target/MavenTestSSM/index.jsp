@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>CRUD</title>
-    <jsp:include page="/include_Jsp/testCRUD.jsp"/>
+    <jsp:include page="/include_Jsp/common_include.jsp"/>
 </head>
 <body>
 <div class="container">
@@ -113,13 +113,13 @@
             $('#emp_add_model').modal('show')
         });
 
+        $("#emp_add_model form").submit(function(ev){ev.preventDefault();});
         $("#btn_save_emp").click(function(){
-            console.log(11111111);
-            console.log($("#emp_add_model form").data("bootstrapValidator"));
-            $("#emp_add_model form").data("bootstrapValidator").validate();//手动触发全部验证
-            var flag = $("#emp_add_model form").data("bootstrapValidator").isValid();//获取当前表单验证状态
-            console.log($("#emp_add_model form").data("bootstrapValidator"));
+            var bootstrapValidator = $("#emp_add_model form").data('bootstrapValidator');
+            bootstrapValidator.validate();
+            var flag =  bootstrapValidator.isValid();
             alert(flag);
+            alert(123);
             if (false) {//验证通过
                 //提交表单数据
                 $.ajax({
