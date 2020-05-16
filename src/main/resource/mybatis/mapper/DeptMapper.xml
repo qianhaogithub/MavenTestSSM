@@ -101,7 +101,7 @@
     <insert id="insert" parameterType="com.github.beans.Dept">
     insert into tbl_dept (dept_id, dept_name)
     values (#{deptId,jdbcType=INTEGER}, #{deptName,jdbcType=VARCHAR})
-  </insert>
+    </insert>
     <insert id="insertSelective" parameterType="com.github.beans.Dept">
         insert into tbl_dept
         <trim prefix="(" suffix=")" suffixOverrides=",">

@@ -118,6 +118,10 @@
             var bootstrapValidator = $("#emp_add_model form").data('bootstrapValidator');
             bootstrapValidator.validate();
             var flag =  bootstrapValidator.isValid();
+            if(!checkEmpName($("#emoName").val())){
+                alert("员工姓名不能重复!");
+                flag = false;
+            }
             if (flag) {//验证通过
                 //提交表单数据
                 $.ajax({
@@ -127,7 +131,7 @@
                     success : function(data){
                         alert(data.msg);
                         $('#emp_add_model').modal('hide');
-                        initParams.pageNo = 9999999;
+                        initParams.pageNo = 99999999;
                         listEmps(initParams);
                     },
                     error : function(){
@@ -155,9 +159,9 @@
                             message: '用户名不能为空'
                         },
                         stringLength: {  //长度限制
-                            min: 4,
-                            max: 100,
-                            message: '用户名长度必须在4到10位之间,中文字符占2位'
+                            min: 0,
+                            max: 3,
+                            message: '长度不合法'
                         },
                     }
                 },
@@ -168,6 +172,20 @@
                         },
                         emailAddress: {
                             message: '邮箱地址格式有误'
+                        }
+                    }
+                },
+                gender: {
+                    validators: {
+                        notEmpty: {
+                            message: '性别不能为空'
+                        }
+                    }
+                },
+                deptId: {
+                    validators: {
+                        notEmpty: {
+                            message: '部门不能为空'
                         }
                     }
                 }
@@ -195,12 +213,12 @@
             var $opertationTd_edit_btn = $("<button></button>").addClass("btn btn-xs btn-info")
                                                 .append($("<span></span>").addClass("glyphicon glyphicon-edit").html("编辑"))
                                                 .click(function(){
-                                                    editEmp(emps.empId);
+                                                    editEmp(item);
                                                 });
             var $opertationTd_del_btn = $("<button></button>").addClass("btn btn-xs btn-danger")
                                                 .append($("<span></span>").addClass("glyphicon glyphicon-remove-sign").html("删除"))
                                                 .click(function () {
-                                                    deleteEmp(emps.empId);
+                                                    deleteEmp(item);
                                                 });
             var $operationTd = $("<td></td>").append($opertationTd_edit_btn).append($opertationTd_del_btn);
             var $empIdTd = $("<td></td>").html(item.empId);
@@ -290,6 +308,27 @@
 
     function deleteEmp(empId){
 
+    }
+
+    function checkEmpName(emoName){
+        var flag = true;
+        alert(emoName);
+        $.ajax({
+            url : "${webRoot}/emp/checkEmpName",
+            data : {emoName:emoName},
+            type : "GET",
+            async : false,
+            success : function (data) {
+                var returncode = data.code;
+                if(returncode!="100"){
+                    flag = flase;
+                }
+            },
+            error : function () {
+                alert("查询员工信息异常!");
+            }
+        });
+        return flag;
     }
 
     function initDeptSelectOption(deptHtmlId){

@@ -1,5 +1,8 @@
 package com.github.beans;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Pattern;
+
 public class Employee {
     private Integer empId;
 

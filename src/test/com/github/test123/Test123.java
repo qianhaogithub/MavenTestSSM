@@ -5,11 +5,17 @@ import org.mybatis.generator.api.MyBatisGenerator;
 import org.mybatis.generator.config.Configuration;
 import org.mybatis.generator.config.xml.ConfigurationParser;
 import org.mybatis.generator.internal.DefaultShellCallback;
+import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.io.File;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
 
 /**
  * @author qianhao
@@ -141,7 +147,7 @@ public class Test123 {
     }
 
     /**
-     * 快速排序
+     * 选择排序
      */
     @Test
     public void testSelectedSort(){
@@ -232,5 +238,77 @@ public class Test123 {
         Integer i1 = Integer.valueOf("123");
         String str = "1123";
         System.out.println("123");
+    }
+
+    @Test
+    public void testList(){
+        List<String> list = new ArrayList<>();
+        list.add("aaa");
+        list.add("aaa");
+        list.add("bbb");
+        list.add("ccc");
+        list.add("ddd");
+        list.add("ccc");
+        list.add("ccc");
+        list.add("ccc");
+        list.add("aaa");
+        list.add("aaa");
+        list.add("bbb");
+        list.add("ccc");
+        list.add("aaa");
+        list.add("eee");
+        for(int i=0;i<list.size()-1;i++){
+            for (int j=i+1;j<list.size();j++){
+                if(list.get(i).equals(list.get(j))){
+                    list.remove(j--);
+                }
+            }
+        }
+        list.forEach((value)->{
+            System.out.println(value);
+        });
+        System.out.println(list);
+    }
+
+    @Test
+    public void testTreeSet(){
+        TreeSet<Integer> ts = new TreeSet<Integer>();
+        ts.add(111);
+        ts.add(222);
+        ts.add(111);
+        ts.add(999);
+        ts.add(888);
+        ts.add(333);
+        System.out.println(ts);
+    }
+
+    @Test
+    public void test(){
+        Test123 t = new Test123();
+        MathOperation addition = (int a, int b) -> {
+            System.out.println(a + "====" +b);
+        };
+        addition.operation(1,2);
+    }
+
+    interface MathOperation {
+        void operation(int a, int b);
+    }
+    @Test
+    public void test1() {
+        Object s = (String)null;
+        Map<String,String> map = new HashMap<String,String>();
+        map.put("aaa","aaa");
+        map.put("bbb","bbb");
+        map.put("ccc","ccc");
+
+        Set<Map.Entry<String, String>> entries = map.entrySet();
+        for (Map.Entry<String, String> entry : entries) {
+            System.out.println(entry.getKey() + "===" + entry.getValue());
+        }
+        System.out.println("===========JDK8:Map集合新遍历方式加上Lamda表达式的使用");
+        map.forEach((key,value)->{
+            System.out.println(key + "===" + value);
+        });
     }
 }

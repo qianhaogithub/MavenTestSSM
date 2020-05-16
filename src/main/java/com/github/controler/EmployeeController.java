@@ -8,6 +8,7 @@ import com.github.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,7 +25,7 @@ import java.util.List;
 public class EmployeeController {
 
     @Autowired
-    EmployeeService employeeService;
+    private EmployeeService employeeService;
 
     @RequestMapping("/getEmp")
     public String getEmps(@RequestParam(value="pageNo",defaultValue = "1")Integer pageNo,
@@ -32,7 +33,7 @@ public class EmployeeController {
                           Model model){
         PageHelper.startPage(pageNo,pageSize);
         List<Employee> emps = employeeService.getAllEmployee();
-        PageInfo<Employee> page = new PageInfo<Employee>(emps,10);//第二位参数标记连续显示的页数
+        PageInfo<Employee> page = new PageInfo<>(emps, 10);//第二位参数标记连续显示的页数
         model.addAttribute("pageInfo",page);
         return "editEM";
     }
@@ -52,5 +53,23 @@ public class EmployeeController {
     public Msg saveEmp(Employee employee){
         employeeService.insertEmployee(employee);
         return Msg.success();
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/checkEmpName")
+    public Msg checkEmpname(String emoName) {
+        Long l = employeeService.countEmployeeByName(emoName);
+        if(l>0){
+            return Msg.success();
+        }else{
+            return Msg.fail(null);
+        }
+    }
+
+    @ResponseBody
+    @RequestMapping(value="/getEmpByID/{empId}",method = RequestMethod.GET)
+    public Msg getEmpById(@PathVariable("empId") Integer id){
+        Employee emp = employeeService.getEmpByID(id);
+        return null;
     }
 }
